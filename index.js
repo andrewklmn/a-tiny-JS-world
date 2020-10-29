@@ -12,12 +12,52 @@ const dog = {
   gender: 'male',
   legs: 4,
   hands: 0,
-  saying: 'woof-woof!'
+  saying: 'woof!',
+  friends: ['Leeloo', 'Korben' ],
 };
 
+const cat = {
+  species: 'cat',
+  name: 'Barsik',
+  gender: 'male',
+  legs: 4,
+  hands: 0,
+  saying: 'meow!',
+  friends: ['Leeloo', 'Korben' ],
+};
 
+const woman = {
+  species: 'woman',
+  name: 'Leeloo Dallas',
+  gender: 'female',
+  legs: 2,
+  hands: 2,
+  saying: 'People hi!',
+  friends: [ 'Korben', 'Dyuka', 'Barsik' ],
+};
 
+const man = {
+  species: 'man',
+  name: 'Korben Dallas',
+  gender: 'male',
+  legs: 2,
+  hands: 2,
+  saying: 'Hello there!',
+  friends: [ 'Leeloo', 'Dyuka', 'Barsik' ],
+};
 
+const catWoman = Object.assign({}, woman);
+catWoman.name = 'Cat-woman';
+catWoman.saying = cat.saying;
+
+const output = (obj)=> {
+  return Object.entries(obj).map((a)=>{ 
+      if (typeof(a[1]) == 'object') {
+        return a[1].join(",");
+      };
+      return a[1];
+  }).join(";");
+};
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
@@ -29,8 +69,16 @@ const dog = {
 
 
   // ... other objects ...
-  print(dog.species + ';' + dog.name + ';' + dog.gender + ';' + 
-    dog.legs + ';' + dog.hands + ';' + dog.saying);
+  /*
+    print(dog.species + ';' + dog.name + ';' + dog.gender + ';' + 
+      dog.legs + ';' + dog.hands + ';' + dog.saying);
+  */
+  print(output(dog));
+  print(output(cat));
+  print(output(woman));
+  print(output(man));
+  print(output(catWoman));
+
   // ... other print-outs ...
 
 /* Print examples:
