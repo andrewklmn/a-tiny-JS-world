@@ -2,7 +2,7 @@
    Complete the below for code reviewers' convenience:
 
    Code repository: https://github.com/andrewklmn/a-tiny-JS-world
-   Web app: _put project's github pages URL here_
+   Web app: https://andrewklmn.github.io/a-tiny-JS-world/
    */
 
 // ======== OBJECTS DEFINITIONS ========
@@ -12,11 +12,70 @@ const dog = {
   gender: 'male',
   legs: 4,
   hands: 0,
-  saying: 'woof-woof!'
+  saying: 'woof!',
+  friends: [],
 };
 
+const cat = {
+  species: 'cat',
+  name: 'Barsik',
+  gender: 'male',
+  legs: 4,
+  hands: 0,
+  saying: 'meow!',
+  friends: [],
+};
 
+const woman = {
+  species: 'human',
+  name: 'Leeloo Dallas',
+  gender: 'female',
+  legs: 2,
+  hands: 2,
+  saying: 'People hi!',
+  friends: [],
+};
 
+const man = {
+  species: 'human',
+  name: 'Korben Dallas',
+  gender: 'male',
+  legs: 2,
+  hands: 2,
+  saying: 'Hello there!',
+  friends: [],
+};
+
+// define cat-woman
+const catWoman = Object.assign({}, woman);
+catWoman.name = 'Cat-woman';
+catWoman.saying = cat.saying;
+
+// define friends for everyone except the cat...
+dog.friends = [man, woman, cat];
+woman.friends = [man, dog, cat];
+man.friends = [woman, dog, cat, catWoman];
+catWoman.friends = [cat];
+
+const inhabitants = [
+  dog, 
+  cat, 
+  woman, 
+  catWoman, 
+  man,
+];
+
+const getFormatedOutput = (obj)=> {
+  return Object.entries(obj).map((a)=>{ 
+      if (typeof(a[1]) == 'object') {
+        if (a[1].length>0) {
+          return a[1].map((elem)=>elem.name).join(",");  
+        }
+        return "No friends";
+      };
+      return a[1];
+  }).join(";");
+};
 
 // ======== OUTPUT ========
 /* Use print(message) for output.
@@ -29,8 +88,11 @@ const dog = {
 
 
   // ... other objects ...
-  print(dog.species + ';' + dog.name + ';' + dog.gender + ';' + 
-    dog.legs + ';' + dog.hands + ';' + dog.saying);
+
+  inhabitants.forEach((obj)=>{
+    print(getFormatedOutput(obj));  
+  });  
+
   // ... other print-outs ...
 
 /* Print examples:
