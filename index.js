@@ -49,6 +49,8 @@ const man = {
 const catWoman = Object.assign({}, woman);
 catWoman.name = 'Cat-woman';
 catWoman.saying = cat.saying;
+catWoman.friends = ['Cat-man'];
+
 
 const output = (obj)=> {
   return Object.entries(obj).map((a)=>{ 
@@ -58,6 +60,7 @@ const output = (obj)=> {
       return a[1];
   }).join(";");
 };
+
 // ======== OUTPUT ========
 /* Use print(message) for output.
    Default tag for message is <pre>. Use print(message,'div') to change containing element tag.
@@ -73,6 +76,7 @@ const output = (obj)=> {
     print(dog.species + ';' + dog.name + ';' + dog.gender + ';' + 
       dog.legs + ';' + dog.hands + ';' + dog.saying);
   */
+
   print(output(dog));
   print(output(cat));
   print(output(woman));
