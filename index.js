@@ -2,7 +2,7 @@
    Complete the below for code reviewers' convenience:
 
    Code repository: https://github.com/andrewklmn/a-tiny-JS-world
-   Web app: _put project's github pages URL here_
+   Web app: https://andrewklmn.github.io/a-tiny-JS-world/
    */
 
 // ======== OBJECTS DEFINITIONS ========
@@ -13,7 +13,7 @@ const dog = {
   legs: 4,
   hands: 0,
   saying: 'woof!',
-  friends: ['Leeloo', 'Korben' ],
+  friends: [],
 };
 
 const cat = {
@@ -23,39 +23,55 @@ const cat = {
   legs: 4,
   hands: 0,
   saying: 'meow!',
-  friends: ['Leeloo', 'Korben' ],
+  friends: [],
 };
 
 const woman = {
-  species: 'woman',
+  species: 'human',
   name: 'Leeloo Dallas',
   gender: 'female',
   legs: 2,
   hands: 2,
   saying: 'People hi!',
-  friends: [ 'Korben', 'Dyuka', 'Barsik' ],
+  friends: [],
 };
 
 const man = {
-  species: 'man',
+  species: 'human',
   name: 'Korben Dallas',
   gender: 'male',
   legs: 2,
   hands: 2,
   saying: 'Hello there!',
-  friends: [ 'Leeloo', 'Dyuka', 'Barsik' ],
+  friends: [],
 };
 
+// define cat-woman
 const catWoman = Object.assign({}, woman);
 catWoman.name = 'Cat-woman';
 catWoman.saying = cat.saying;
-catWoman.friends = ['Cat-man'];
 
+// define friends for everyone except the cat...
+dog.friends = [man, woman, cat];
+woman.friends = [man, dog, cat];
+man.friends = [woman, dog, cat, catWoman];
+catWoman.friends = [cat];
 
-const output = (obj)=> {
+const inhabitants = [
+  dog, 
+  cat, 
+  woman, 
+  catWoman, 
+  man,
+];
+
+const getFormatedOutput = (obj)=> {
   return Object.entries(obj).map((a)=>{ 
       if (typeof(a[1]) == 'object') {
-        return a[1].join(",");
+        if (a[1].length>0) {
+          return a[1].map((elem)=>elem.name).join(",");  
+        }
+        return "No friends";
       };
       return a[1];
   }).join(";");
@@ -72,16 +88,10 @@ const output = (obj)=> {
 
 
   // ... other objects ...
-  /*
-    print(dog.species + ';' + dog.name + ';' + dog.gender + ';' + 
-      dog.legs + ';' + dog.hands + ';' + dog.saying);
-  */
 
-  print(output(dog));
-  print(output(cat));
-  print(output(woman));
-  print(output(man));
-  print(output(catWoman));
+  inhabitants.forEach((obj)=>{
+    print(getFormatedOutput(obj));  
+  });  
 
   // ... other print-outs ...
 
