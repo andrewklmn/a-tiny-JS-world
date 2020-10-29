@@ -1,12 +1,21 @@
 /* Refer to https://github.com/OleksiyRudenko/a-tiny-JS-world for the task details
    Complete the below for code reviewers' convenience:
 
-   Code repository: _put repo URL here_
+   Code repository: https://github.com/andrewklmn/a-tiny-JS-world
    Web app: _put project's github pages URL here_
    */
 
 // ======== OBJECTS DEFINITIONS ========
-// Define your objects here
+const dog = {
+  species: 'dog',
+  name: 'Dyuka',
+  gender: 'male',
+  legs: 4,
+  hands: 0,
+  saying: 'woof-woof!'
+};
+
+
 
 
 // ======== OUTPUT ========
@@ -17,6 +26,12 @@
    However, please, REFRAIN from improving visuals at least until your code is reviewed
    so code reviewers might focus on a single file that is index.js.
    */
+
+
+  // ... other objects ...
+  print(dog.species + ';' + dog.name + ';' + dog.gender + ';' + 
+    dog.legs + ';' + dog.hands + ';' + dog.saying);
+  // ... other print-outs ...
 
 /* Print examples:
    print('ABC');
