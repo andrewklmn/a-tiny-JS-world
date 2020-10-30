@@ -1,0 +1,28 @@
+{
+  "name": "a-tiny-js-world",
+  "version": "1.0.0",
+  "description": "[![MIT Licensed][icon-mit]][license] [![Kottans-Frontend][icon-kottans]][kottans-frontend]",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andrewklmn/a-tiny-JS-world.git"
+  },
+  "author": "andrewklmn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/andrewklmn/a-tiny-JS-world/issues"
+  },
+  "homepage": "https://github.com/andrewklmn/a-tiny-JS-world#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-base": "^14.2.0",
+    "eslint-config-standard": "^16.0.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1"
+  }
+}
