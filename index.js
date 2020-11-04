@@ -6,17 +6,25 @@
    */
 
 // ======== OBJECTS DEFINITIONS ========
-const Inhabitant = function ({species, name, gender, legs = 0, hands = 0, friends = [] }) {
+const Inhabitant = function ({species, name, gender, legs = 0, hands = 0, saying, friends = [] }) {
   this.species = species;
   this.name = name;
   this.gender = gender;
   this.legs = legs;
   this.hands = hands;
+  this.saying = saying;
   this.friends = friends;
 };
 
-Inhabitant.prototype.saying = function (fn) {
-  fn();
+Inhabitant.prototype.listFriedns = function () {
+  if (this.friends.length > 0) {
+    return this.friends.map(friend => friend.name).join(', ');
+  };
+  return '';
+};
+
+Inhabitant.prototype.toString = function () {
+  return `${this.species}; ${this.name}; ${this.gender}; ${this.legs}; ${this.hands}; ${this.saying}; ${this.listFriedns}`;
 };
 
 const dog = {
